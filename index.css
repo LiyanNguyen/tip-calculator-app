@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+:root {
+	/* Primary Color */
+	--cyanPrimary: hsl(172, 67%, 45%);
+
+	/* Nuetral Colors */
+	--cyan6: hsl(183, 100%, 20%);
+	--cyan5: hsl(183, 100%, 15%);
+	--cyan4: hsl(186, 14%, 43%);
+	--cyan3: hsl(184, 14%, 56%);
+	--cyan2: hsl(185, 41%, 84%);
+	--cyan1: hsl(189, 41%, 97%);
+	--white: hsl(0, 0%, 100%);
+
+	font-family: 'Space Mono', monospace;
+	font-size: 24px; /* form inputs */
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+main {
+	min-height: 100vh;
+	min-width: 100vw;
+	background-color: var(--cyan2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+main h1 {
+	letter-spacing: 1rem;
+	font-size: 1rem;
+	text-transform: uppercase;
+	color: var(--cyan5);
+	position: absolute;
+	top: 2rem;
+	cursor: default;
+}
+
+.calculatorCard {
+	width: 60vw;
+	height: 60vh;
+	background-color: var(--white);
+	border-radius: .8rem;
+	padding: 1rem 1.5rem;
+	display: flex;
+}
+
+.inputs {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.outcomes {
+	width: 50%;
+	height: 100%;
+	background-color: var(--cyan5);
+	border-radius: .8rem;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.inputs label,
+.inputs p {
+	font-size: .7rem;
+	color: var(--cyan4);
+	cursor: default;
+}
+
+#bill,
+#people {
+	width: 96%;
+	padding: .2rem;
+	border-radius: .2rem;
+	border: none;
+	background-color: var(--cyan1);
+	color: var(--cyan5);
+	font-size: 1rem;
+	font-weight: 700;
+	font-family: 'Space Mono', monospace;
+	cursor: pointer;
+	text-align: right;
+	padding-inline: .5rem;
+}
+
+#bill::placeholder,
+#people::placeholder {
+	color: var(--cyan3);
+	text-align: right;
+}
+
+.bilContainter,
+.peopleContainer {
+	position: relative;
+}
+
+.peopleContainer p {
+	position: absolute;
+	display: none; /* do not show initially */
+	top: .3rem;
+	right: 1rem;
+	font-size: .7rem;
+	color: red;
+}
+
+.bilContainter img,
+.peopleContainer img {
+	position: absolute;
+	left: .5rem;
+	top: 2.1rem;
+}
+
+.tipChoices {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 3%;
+}
+
+.tipChoices button {
+	width: 30%;
+	padding: .2rem;
+	margin-block: .2rem;
+	border: none;
+	background-color: var(--cyan5);
+	color: var(--white);
+	font-size: 1rem;
+	font-weight: 700;
+	font-family: 'Space Mono', monospace;
+	cursor: pointer;
+	border-radius: .2rem;
+	text-align: center;
+}
+
+.tipChoices button:hover {
+	background-color: var(--cyan2);
+	color: var(--cyan5);
+}
+
+.tipChoices button.selectedTip {
+	background-color: var(--cyanPrimary);
+	color: var(--cyan5);
+}
+
+.tipChoices input {
+	width: 30%;
+	padding: .2rem;
+	margin-block: .2rem;
+	border: none;
+	background-color: var(--cyan1);
+	color: var(--cyan5);
+	font-size: 1rem;
+	font-weight: 700;
+	font-family: 'Space Mono', monospace;
+	cursor: pointer;
+	border-radius: .2rem;
+	text-align: right;
+	padding-inline: .5rem;
+}
+
+.tipChoices input::placeholder {
+	color: var(--cyan4);
+	text-align: center;
+}
+
+#bill:focus,
+#people:focus,
+.tipChoices input:focus {
+	outline: .1rem solid var(--cyanPrimary);
+}
+
+.invalidInput {
+	outline: .1rem solid red;
+}
+
+.outcomes p {
+	color: var(--white);
+	font-size: .7rem;
+	cursor: default;
+}
+
+.outcomes span {
+	color: var(--cyan3);
+	font-size: .6rem;
+}
+
+.outcomes h2 {
+	color: var(--cyanPrimary);
+	cursor: default;
+}
+
+.tipAmountContainer,
+.totalAmountContainer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.resetButtonsContainer {
+	display: flex;
+	flex-direction: column;
+	margin-top: auto;
+	position: relative;
+}
+
+#reset {
+	padding: .2rem;
+	font-size: 1rem;
+	font-family: 'Space Mono', monospace;
+	text-transform: uppercase;
+	border-radius: .2rem;
+	border: none;
+	cursor: not-allowed;
+	background-color: var(--cyan6);
+	color: var(--cyan5);
+}
+
+#validReset {
+	width: 100%;
+	display: none;
+	position: absolute;
+	padding: .2rem;
+	font-size: 1rem;
+	font-family: 'Space Mono', monospace;
+	text-transform: uppercase;
+	border-radius: .2rem;
+	border: none;
+	cursor: pointer;
+	background-color: var(--cyanPrimary);
+	color: var(--cyan5);
+}
+
+#validReset:hover {
+	background-color: var(--cyan2);
+}
+
+/* Hide the up and down button on number input */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+/* Tablet and Mobile Viewports */
+@media screen and (max-width: 800px) {
+	.calculatorCard {
+		width: 100vw;
+		height: 100vh;
+		flex-direction: column;
+	}
+
+	main {
+		padding-top: 2rem;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	main h1 {
+		position: initial;
+	}
+
+	.inputs {
+		width: 100%;
+		height: 55%;
+	}
+	
+	.outcomes {
+		width: 100%;
+		height: 45%;
+		gap: initial;
+		justify-content: space-between;
+		margin-top: 1rem;
+		padding: 1rem;
+	}
+
+	.tipChoices {
+		gap: initial;
+		justify-content: space-between;
+	}
+	
+	.tipChoices button {
+		width: 48%;
+	}
+
+	.tipChoices input {
+		width: 48%;
+	}
+
+	#reset {
+		margin-top: initial;
+	}
+
+	.peopleContainer p {
+		font-size: .5rem;
+		top: .5rem;
+		right: .7rem;
+	}
+}
