@@ -5,10 +5,13 @@ A Tip Calculator App that calculates the tip and total amount to be paid by each
 This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX).
 
 ### Screenshot
+![image](https://user-images.githubusercontent.com/50958126/164987479-37e15359-ea3d-4979-9787-0dfda6349501.png)
+![image](https://user-images.githubusercontent.com/50958126/164987513-d2323894-8877-4e1a-b64b-75ad7bd943c2.png)
+
 
 ### Links
-- Solution URL: 
-- Live Site URL: 
+- Solution URL: https://github.com/LiyanNguyen/tip-calculator-app
+- Live Site URL: https://liyannguyen.github.io/tip-calculator-app
 
 ### My Process
 - Design the Desktop Viewport WHILE desinging the Mobile viewport at the same time
