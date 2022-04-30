@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+// Primary Colors
+@cyanPrimary: hsl(172, 67%, 45%);
+
+// Neutral Colors
+@cyan6: hsl(183, 100%, 20%);
+@cyan5: hsl(183, 100%, 15%);
+@cyan4: hsl(186, 14%, 43%);
+@cyan3: hsl(184, 14%, 56%);
+@cyan2: hsl(185, 41%, 84%);
+@cyan1: hsl(189, 41%, 97%);
+@white: hsl(0, 0%, 100%);
+
+// Media Query
+@tabletAndPhone: ~"screen and (max-width: 800px)";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	font-family: 'Space Mono', monospace;
+	font-size: 24px;
+}
+
+main {
+	min-height: 100vh;
+	min-width: 100vw;
+	background-color: @cyan2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	h1 {
+		letter-spacing: 1rem;
+		font-size: 1rem;
+		text-transform: uppercase;
+		color: @cyan5;
+		position: absolute;
+		top: 2rem;
+		cursor: default;
+
+		@media @tabletAndPhone {
+			position: initial;
+		}
+	}
+
+	@media @tabletAndPhone {
+		padding-top: 2rem;
+		flex-direction: column;
+		gap: 2rem;
+	}
+}
+
+.calculatorCard {
+	width: 60vw;
+	height: 60vh;
+	background-color: @white;
+	border-radius: .8rem;
+	padding: 1rem 1.5rem;
+	display: flex;
+
+	@media @tabletAndPhone {
+		width: 100vw;
+		height: 100vh;
+		flex-direction: column;
+	}
+}
+
+.inputs {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+
+	@media @tabletAndPhone {
+		width: 100%;
+		height: 55%;
+	}
+
+	label,p {
+		font-size: .7rem;
+		color: @cyan4;
+		cursor: default;
+	}
+}
+
+.outcomes {
+	width: 50%;
+	height: 100%;
+	background-color: @cyan5;
+	border-radius: .8rem;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	@media @tabletAndPhone {
+		width: 100%;
+		height: 45%;
+		gap: initial;
+		justify-content: space-between;
+		margin-top: 1rem;
+		padding: 1rem;
+	}
+
+	p {
+		color: @white;
+		font-size: .7rem;
+		cursor: default;
+	}
+
+	span {
+		color: @cyan3;
+		font-size: .6rem;
+	}
+
+	h2 {
+		color: @cyanPrimary;
+		cursor: default;
+	}
+}
+
+.tipAmountContainer,
+.totalAmountContainer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.resetButtonsContainer {
+	display: flex;
+	flex-direction: column;
+	margin-top: auto;
+	position: relative;
+}
+
+.resetButtons() {
+	width: 100%;
+	padding: .2rem;
+	font-size: 1rem;
+	font-family: 'Space Mono', monospace;
+	text-transform: uppercase;
+	border-radius: .2rem;
+	border: none;
+}
+
+#reset {
+	.resetButtons();
+	cursor: not-allowed;
+	background-color: @cyan6;
+	color: @cyan5;
+
+	@media @tabletAndPhone {
+		margin-top: initial;
+	}
+}
+
+#validReset {
+	.resetButtons();
+	display: none;
+	position: absolute;
+	cursor: pointer;
+	background-color: @cyanPrimary;
+	color: @cyan5;
+
+	&:hover {
+		background-color: @cyan2;
+	}
+}
+
+// Hide the up and down button on number input for chrome
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+// Hide the up and down button on number input for firefox
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+#bill,
+#people {
+	width: 96%;
+	padding: .2rem;
+	border-radius: .2rem;
+	border: none;
+	background-color: @cyan1;
+	color: @cyan5;
+	font-size: 1rem;
+	font-weight: 700;
+	font-family: 'Space Mono', monospace;
+	cursor: pointer;
+	text-align: right;
+	padding-inline: .5rem;
+
+	&::placeholder {
+		color: @cyan3;
+		text-align: right;
+	}
+
+	&:focus {
+		outline: .1rem solid @cyanPrimary;
+	}
+}
+
+.bilContainter,
+.peopleContainer {
+	position: relative;
+
+	img {
+		position: absolute;
+		left: .5rem;
+		top: 2.1rem;
+	}
+}
+
+#errorMsg {
+	position: absolute;
+	display: none; // do not show initially
+	top: .3rem;
+	right: 1rem;
+	font-size: .7rem;
+	color: red;
+
+	@media @tabletAndPhone {
+		font-size: .5rem;
+		top: .5rem;
+		right: .7rem;
+	}
+}
+
+.tipChoicesElements() {
+	width: 30%;
+	padding: .2rem;
+	margin-block: .2rem;
+	border: none;
+	font-size: 1rem;
+	font-weight: 700;
+	font-family: 'Space Mono', monospace;
+	cursor: pointer;
+	border-radius: .2rem;
+}
+
+.tipChoices {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 3%;
+
+	@media @tabletAndPhone {
+		gap: initial;
+		justify-content: space-between;
+	}
+
+	button {
+		.tipChoicesElements();
+		text-align: center;
+		background-color: @cyan5;
+		color: @white;
+
+		@media @tabletAndPhone {
+			width: 48%;
+		}
+
+		&:hover {
+			background-color: @cyan2;
+			color: @cyan5;
+		}
+
+		&.selectedTip {
+			background-color: @cyanPrimary;
+			color: @cyan5;
+		}
+	}
+
+	input {
+		.tipChoicesElements();
+		text-align: right;
+		padding-inline: .5rem;
+		background-color: @cyan1;
+		color: @cyan5;
+
+		@media @tabletAndPhone {
+			width: 48%;
+		}
+
+		&::placeholder {
+			color: @cyan4;
+			text-align: center;
+		}
+
+		&:focus {
+			outline: .1rem solid @cyanPrimary;
+		}
+	}
+}
+
+// class to be add and remove via JS
+.invalidInput {
+	outline: .1rem solid red;
+}
