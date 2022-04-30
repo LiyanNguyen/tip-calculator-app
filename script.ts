@@ -1,17 +1,17 @@
-let billInput = document.querySelector("#bill");
-let customTipInput = document.querySelector("#customTip");
-let peopleNumberInput = document.querySelector("#people");
-let tipAmountPerPerson = document.querySelector("#tipAmountPerPerson");
-let totalPerPerson = document.querySelector("#totalPerPerson");
-let tipButtons = document.querySelectorAll(".tipChoices button");
-let errorMessage = document.querySelector("#errorMsg");
-let validResetButton = document.querySelector("#validReset");
+let billInput = document.querySelector<HTMLInputElement>("#bill")!;
+let customTipInput = document.querySelector < HTMLInputElement>("#customTip")!;
+let peopleNumberInput = document.querySelector<HTMLInputElement>("#people")!;
+let tipAmountPerPerson = document.querySelector<HTMLHeadingElement>("#tipAmountPerPerson")!;
+let totalPerPerson = document.querySelector<HTMLHeadingElement>("#totalPerPerson")!;
+let tipButtons = document.querySelectorAll<HTMLButtonElement>(".tipChoices button")!;
+let errorMessage = document.querySelector<HTMLParagraphElement>("#errorMsg")!;
+let validResetButton = document.querySelector<HTMLButtonElement>("#validReset")!;
 
-let bill = 0;
-let tip = 0;
-let numberOfPeople = 0;
-let TipAmount = 0;
-let TotalAmount = 0;
+let bill: any = 0;
+let tip: any = 0;
+let numberOfPeople: any = 0;
+let TipAmount: any = 0;
+let TotalAmount: any = 0;
 
 billInput.oninput = () => {
 	if (billInput.value != "") {
@@ -22,10 +22,11 @@ billInput.oninput = () => {
 
 customTipInput.oninput = () => {
 	if (customTipInput.value != "") {
-    tip = customTipInput.value;
-  } else {
-    tip = 0;
-  }
+		tip = customTipInput.value;
+	}
+	else {
+		tip = 0;
+	}
 	tipButtons.forEach((button) => {
 		button.classList.remove("selectedTip");
 	});
@@ -34,10 +35,11 @@ customTipInput.oninput = () => {
 
 customTipInput.onfocus = () => {
 	if (customTipInput.value != "") {
-    tip = customTipInput.value;
-  } else {
-    tip = 0;
-  }
+		tip = customTipInput.value;
+	}
+	else {
+		tip = 0;
+	}
 	tipButtons.forEach((button) => {
 		button.classList.remove("selectedTip");
 	});
@@ -45,14 +47,14 @@ customTipInput.onfocus = () => {
 };
 
 peopleNumberInput.oninput = () => {
-	if (peopleNumberInput.value != "" && peopleNumberInput.value != 0) {
+	if (peopleNumberInput.value != "" && peopleNumberInput.value != "0") {
 		numberOfPeople = peopleNumberInput.value;
 		peopleNumberInput.classList.remove("invalidInput");
 		errorMessage.style.display = "none";
 		caculateTipAndTotal();
 	}
 
-	else if (peopleNumberInput.value == "" || peopleNumberInput.value == 0) {
+	else if (peopleNumberInput.value == "" || peopleNumberInput.value == "0") {
 		peopleNumberInput.classList.add("invalidInput");
 		errorMessage.style.display = "block"
 		tipAmountPerPerson.innerText = `$0.00`;
@@ -66,13 +68,10 @@ let caculateTipAndTotal = () => {
 	if (bill != 0 && numberOfPeople != 0) {
 		TipAmount = (bill * (tip / 100)) / numberOfPeople;
 		TotalAmount = (bill * (1 + tip / 100)) / numberOfPeople;
-
 		// smart solution to always show 2 decimal places but not rounding on the 2nd decimal place
 		tipAmountPerPerson.innerText = `$${TipAmount.toFixed(3).slice(0, -1)}`;
-
 		//weird, this one we round to 2 decimal places - accoding to the design anyway
-		totalPerPerson.innerText = `$${TotalAmount.toFixed(2)}`;
-		
+		totalPerPerson.innerText = `$${TotalAmount.toFixed(2)}`;	
 		validResetButton.style.display = "block";
 	}
 };
@@ -100,11 +99,9 @@ validResetButton.onclick = () => {
 	peopleNumberInput.value = "";
 	tipAmountPerPerson.innerText = `$0.00`;
 	totalPerPerson.innerText = `$0.00`;
-
 	tipButtons.forEach((allButtons) => {
 		allButtons.classList.remove("selectedTip");
 	});
-
 	validResetButton.style.display = "none";
 };
 
@@ -112,6 +109,6 @@ validResetButton.onclick = () => {
 // so we dont have to deal with negative inputs in the first place
 window.addEventListener("keydown", (event) => {
 	if (event.key == "-" || event.key == "+") {
-    event.preventDefault();
-  }
+		event.preventDefault();
+	}
 });

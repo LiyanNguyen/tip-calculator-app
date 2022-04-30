@@ -1,0 +1,24 @@
+{
+  "name": "tip-calculator-app",
+  "version": "1.0.0",
+  "description": "A Tip Calculator App that calculates the tip and total amount to be paid by each person according to a bill",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiyanNguyen/tip-calculator-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiyanNguyen/tip-calculator-app/issues"
+  },
+  "homepage": "https://github.com/LiyanNguyen/tip-calculator-app#readme",
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  }
+}
