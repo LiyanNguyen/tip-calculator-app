@@ -1,6 +1,12 @@
 # Tip Calculator App
 A Tip Calculator App that calculates the tip and total amount to be paid by each person according to a bill
 
+---
+## **⚠️ Update 30/4/2022**
+- This project has been updated to use **LESS CSS Preprocessor** 😊
+- This project has been updated to use **TypeScript** 💪
+---
+
 ### Frontend Mentor - Tip calculator app solution
 This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX).
 
